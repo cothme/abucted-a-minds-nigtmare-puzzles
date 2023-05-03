@@ -7,21 +7,42 @@ using UnityEngine.UI;
 
 public class Rotating_Puzzle : MonoBehaviour
 {
+    public Button move3,move4;
     int pointedNumber;
     int nodeID,limit;
     public Transform arrow;
-    public Transform[] images;
+    [SerializeField] List<Transform> images;
     public Color defaultColor;
     public Color pointedColor;
     public float rotationSpeed; 
     public float rotationDelay;
-    public void Start()
+    public List <int> winningImages;
+    List <int> coloredImages;
+    public GameObject gameWonPanel;
+    int coloredCount = 0;
+    private void Start()
     {
+        coloredImages = new List<int>{};
         pointedNumber = 1;
-        limit = images.Length;
+        limit = images.Count;
         foreach(Transform image in images)
         {
             image.GetComponent<Image>().color = defaultColor;
+        }
+    }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            foreach(int image in coloredImages)
+            {
+                Debug.Log(image);
+            }
+            foreach(int image in winningImages)
+            {
+                Debug.Log(image);
+            }
+            Debug.Log(CheckWinCondition());
         }
     }
     IEnumerator RotateArrow(float targetAngle)
@@ -42,22 +63,49 @@ public class Rotating_Puzzle : MonoBehaviour
             angleDifference = Mathf.DeltaAngle(currentAngle, targetAngle);
             yield return null;
         }
-        foreach (Transform image in images)
+        Transform pointedImage = images[pointedNumber - 1];
+        Image pointedImageColor = pointedImage.GetComponent<Image>();
+        if(pointedImageColor.color == defaultColor)
         {
-            if (image == images[pointedNumber - 1])
-            {
-                image.GetComponent<Image>().color = pointedColor;
-            }
-            else
-            {
-                image.GetComponent<Image>().color = defaultColor;
-            }
+            pointedImageColor.color = pointedColor;
+            coloredImages.Add(pointedNumber);
+            coloredImages.Sort();
         }
+        else
+        {
+            pointedImageColor.color = defaultColor;
+            coloredImages.Remove(pointedNumber);
+        }
+        if(CheckWinCondition())
+        {
+            gameWonPanel.SetActive(true);
+        }
+        move3.interactable = true;
+        move4.interactable = true;
     }
 
     public void Move_Three()
     {
+        move3.interactable = false;
+        move4.interactable = false;
         pointedNumber += 3;
+        if(pointedNumber > limit)
+        {
+            pointedNumber = pointedNumber % limit;
+            if (pointedNumber == 0) {
+                pointedNumber = limit;
+            }
+        }
+        Vector3 direction = images[pointedNumber - 1].position - arrow.position;
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        StartCoroutine(RotateArrow(targetAngle));
+    }
+
+    public void Move_Four()
+    {
+        move3.interactable = false;
+        move4.interactable = false;
+        pointedNumber += 4;
         if(pointedNumber > limit)
         {
             pointedNumber = pointedNumber % limit;
@@ -70,18 +118,8 @@ public class Rotating_Puzzle : MonoBehaviour
 
         StartCoroutine(RotateArrow(targetAngle));
     }
-    public void Move_Four()
+    private bool CheckWinCondition()
     {
-        pointedNumber += 4;
-        if(pointedNumber > limit)
-        {
-            pointedNumber = pointedNumber % limit;
-            if (pointedNumber == 0) {
-                pointedNumber = limit;
-            }
-        }
-        Vector3 direction = images[pointedNumber - 1].position - arrow.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        arrow.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        return Enumerable.SequenceEqual(winningImages,coloredImages);
     }
 }
