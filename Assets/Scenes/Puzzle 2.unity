@@ -397,7 +397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 255222546}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 788715208}
+        m_TargetAssemblyTypeName: Door_Puzzle, Assembly-CSharp
+        m_MethodName: Button1Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &255222546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,8 +491,9 @@ GameObject:
   - component: {fileID: 374650238}
   - component: {fileID: 374650237}
   - component: {fileID: 374650236}
+  - component: {fileID: 374650240}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Painting 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,6 +576,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &374650240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374650235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c872f9baa538b41ab31d754985eac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doors: []
+  buttons: []
 --- !u!1 &489594043
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,9 +602,8 @@ GameObject:
   - component: {fileID: 489594046}
   - component: {fileID: 489594045}
   - component: {fileID: 489594044}
-  - component: {fileID: 489594047}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Painting 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,34 +671,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489594043}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!222 &489594047
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489594043}
-  m_CullTransparentMesh: 1
---- !u!224 &489594048
-RectTransform:
+--- !u!4 &489594048
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489594043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -13.8}
+  m_LocalPosition: {x: -28.759998, y: 12.01, z: -13.8}
   m_LocalScale: {x: 2.5604, y: 5.631625, z: 0.053968}
   m_Children:
   - {fileID: 903888078}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28.759998, y: 12.01}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &530228738
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +768,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 530228741}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 788715208}
+        m_TargetAssemblyTypeName: Door_Puzzle, Assembly-CSharp
+        m_MethodName: Button2Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &530228741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,7 +983,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 643806681}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 788715208}
+        m_TargetAssemblyTypeName: Door_Puzzle, Assembly-CSharp
+        m_MethodName: Button3Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &643806681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,7 +1047,7 @@ GameObject:
   - component: {fileID: 719767765}
   - component: {fileID: 719767764}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Painting 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1092,6 +1129,59 @@ Transform:
   - {fileID: 72440156}
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &788715207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788715209}
+  - component: {fileID: 788715208}
+  m_Layer: 0
+  m_Name: Puzzle Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &788715208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788715207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c872f9baa538b41ab31d754985eac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doors:
+  - {fileID: 374650239}
+  - {fileID: 489594048}
+  - {fileID: 719767767}
+  - {fileID: 1810292370}
+  buttons:
+  - {fileID: 255222545}
+  - {fileID: 530228740}
+  - {fileID: 643806680}
+  - {fileID: 1226479921}
+--- !u!4 &788715209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788715207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.657265, y: 4.599468, z: -27.772177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &878088491
 GameObject:
@@ -1562,7 +1652,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1226479922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 788715208}
+        m_TargetAssemblyTypeName: Door_Puzzle, Assembly-CSharp
+        m_MethodName: Button4Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1226479922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2051,7 +2153,7 @@ GameObject:
   - component: {fileID: 1810292368}
   - component: {fileID: 1810292367}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Painting 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

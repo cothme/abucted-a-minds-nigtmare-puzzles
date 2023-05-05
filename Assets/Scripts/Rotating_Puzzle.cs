@@ -19,7 +19,6 @@ public class Rotating_Puzzle : MonoBehaviour
     public List <int> winningImages;
     List <int> coloredImages;
     public GameObject gameWonPanel;
-    int coloredCount = 0;
     private void Start()
     {
         coloredImages = new List<int>{};
