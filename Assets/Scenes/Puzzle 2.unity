@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 374650236}
   - component: {fileID: 374650240}
   m_Layer: 0
-  m_Name: Painting 1
+  m_Name: Portrait 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 489594045}
   - component: {fileID: 489594044}
   m_Layer: 0
-  m_Name: Painting 2
+  m_Name: Portrait 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1047,7 +1047,7 @@ GameObject:
   - component: {fileID: 719767765}
   - component: {fileID: 719767764}
   m_Layer: 0
-  m_Name: Painting 3
+  m_Name: Portrait 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2153,7 +2153,7 @@ GameObject:
   - component: {fileID: 1810292368}
   - component: {fileID: 1810292367}
   m_Layer: 0
-  m_Name: Painting 4
+  m_Name: Portrait 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
