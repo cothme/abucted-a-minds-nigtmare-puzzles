@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +8,30 @@ public class Door_Puzzle : MonoBehaviour
 {
     [SerializeField] List<Transform> doors;
     [SerializeField] List<Button> buttons;
-    bool isRotating = false;
+    public int[] correctValues = new int[] {0,1,1,0};
+    int[] playerValues = new int[] {0,0,0,0};
+    bool[] doorFlipped = new bool[] {false,false,false,false};
+    
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            foreach(int i in playerValues)
+            {
+                Debug.Log(i);
+            }
+        }
+    }
     IEnumerator RotateDoorCoroutine(int doorIndex)
     {
-        isRotating = true;
+        if(!doorFlipped[doorIndex])
+        {
+            doorFlipped[doorIndex] = true;
+        }
+        else
+        {
+            doorFlipped[doorIndex] = false;
+        }
         Quaternion startRotate = doors[doorIndex].transform.rotation;
         Quaternion endRotate = doors[doorIndex].transform.rotation * Quaternion.Euler(0,180,0);
         float i = 0;
@@ -20,7 +41,12 @@ public class Door_Puzzle : MonoBehaviour
             doors[doorIndex].transform.rotation = Quaternion.Lerp(startRotate,endRotate,i);
             yield return null;
         }
+        determinePlayerValue(doorFlipped,playerValues);
         enableButtons(buttons);
+        if(CheckWinCondition())
+        {
+            Debug.Log("WIN");
+        }
     }
     void disableButtons(List<Button> buttons)
     {
@@ -36,13 +62,25 @@ public class Door_Puzzle : MonoBehaviour
             button.interactable = true;
         }
     }
-    public void StartRotate(int doorIndex)
+    void StartRotate(int doorIndex)
     {
         StartCoroutine(RotateDoorCoroutine(doorIndex));
     }
+    void determinePlayerValue(bool[] doorFlipped,int[] playerValues)
+    {
+        for(int i = 0; i < doorFlipped.Length; i++)
+        {
+            if(doorFlipped[i]) { playerValues[i] = 1; } else { playerValues[i] = 0; }
+        }
+    }
+
+    bool CheckWinCondition()
+    {
+        return Enumerable.SequenceEqual(correctValues,playerValues);
+    }
     public void Button1Pressed()
     {   
-        disableButtons(buttons); 
+        disableButtons(buttons);
         StartRotate(0); 
         StartRotate(1);
     }
@@ -56,6 +94,7 @@ public class Door_Puzzle : MonoBehaviour
     public void Button3Pressed()
     {
         disableButtons(buttons); 
+        determinePlayerValue(doorFlipped,playerValues);
         StartRotate(1); 
         StartRotate(2);
         StartRotate(3);

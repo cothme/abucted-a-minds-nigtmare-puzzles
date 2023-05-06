@@ -590,6 +590,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors: []
   buttons: []
+  correctValues: 00000000010000000000000001000000
+  playerValues: 00000000000000000000000000000000
+  doorFlipped: 00000000
 --- !u!1 &489594043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1172,9 @@ MonoBehaviour:
   - {fileID: 530228740}
   - {fileID: 643806680}
   - {fileID: 1226479921}
+  correctValues: 00000000010000000100000000000000
+  playerValues: 00000000000000000000000000000000
+  doorFlipped: 00000000
 --- !u!4 &788715209
 Transform:
   m_ObjectHideFlags: 0
