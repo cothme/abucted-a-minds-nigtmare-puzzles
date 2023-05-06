@@ -94,7 +94,6 @@ public class Door_Puzzle : MonoBehaviour
     public void Button3Pressed()
     {
         disableButtons(buttons); 
-        determinePlayerValue(doorFlipped,playerValues);
         StartRotate(1); 
         StartRotate(2);
         StartRotate(3);
