@@ -126,7 +126,6 @@ public class Memory_Puzzle : MonoBehaviour
             }
             else
             {
-                Debug.Log("Wrong!!!!");
                 playerValues.Clear();
                 startButton.interactable = true;
                 disableButtons(buttons);

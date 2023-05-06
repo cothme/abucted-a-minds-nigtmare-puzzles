@@ -12,16 +12,6 @@ public class Door_Puzzle : MonoBehaviour
     int[] playerValues = new int[] {0,0,0,0};
     bool[] doorFlipped = new bool[] {false,false,false,false};
     
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-            foreach(int i in playerValues)
-            {
-                Debug.Log(i);
-            }
-        }
-    }
     IEnumerator RotateDoorCoroutine(int doorIndex)
     {
         if(!doorFlipped[doorIndex])

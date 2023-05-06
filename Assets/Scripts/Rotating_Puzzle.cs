@@ -29,21 +29,6 @@ public class Rotating_Puzzle : MonoBehaviour
             image.GetComponent<Image>().color = defaultColor;
         }
     }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-            foreach(int image in coloredImages)
-            {
-                Debug.Log(image);
-            }
-            foreach(int image in winningImages)
-            {
-                Debug.Log(image);
-            }
-            Debug.Log(CheckWinCondition());
-        }
-    }
     IEnumerator RotateArrow(float targetAngle)
     {
         // wait for the delay before starting to rotate the arrow
@@ -78,6 +63,7 @@ public class Rotating_Puzzle : MonoBehaviour
         if(CheckWinCondition())
         {
             gameWonPanel.SetActive(true);
+            Debug.Log("Win");
         }
         move3.interactable = true;
         move4.interactable = true;
